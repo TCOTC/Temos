@@ -5,7 +5,7 @@
   "identifier": "com.temosapp.i",
   "build": {
     "beforeDevCommand": "deno task dev",
-    "devUrl": "http://localhost:1420",
+    "devUrl": "http://localhost:6086",
     "beforeBuildCommand": "deno task build",
     "frontendDist": "../dist"
   },
