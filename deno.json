@@ -1,5 +1,5 @@
 {
-  "nodeModulesDir": true,
+  "nodeModulesDir": "auto",
   "compat": true,
   "imports": {
     "path": "npm:@types/node/path"

@@ -30,8 +30,7 @@ display: none;
 
 <style scoped>
 .editor-container {
-  width: 100%;
-  height: 100%;
+  height: calc(100% - 40px);
   padding: 20px;
 }
 </style>

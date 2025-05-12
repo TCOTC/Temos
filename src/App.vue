@@ -2,7 +2,12 @@
 import { ref } from "vue";
 import RichTextEditor from './components/RichTextEditor.vue'
 
-const notes = ref([{ id: 1, title: '示例笔记' }])
+interface Note {
+  id: number
+  title: string
+}
+
+const notes = ref<Note[]>([{ id: 1, title: '示例笔记' }])
 </script>
 
 <template>
@@ -23,6 +28,7 @@ const notes = ref([{ id: 1, title: '示例笔记' }])
 .app-container {
   display: flex;
   height: 100vh;
+  overflow: hidden;
 }
 
 .notes-list {
@@ -41,6 +47,8 @@ const notes = ref([{ id: 1, title: '示例笔记' }])
 .editor-section {
   flex: 1;
   padding: 20px;
+  overflow: auto;
+  scrollbar-gutter: stable;
 }
 </style>
 <style>
@@ -61,9 +69,34 @@ const notes = ref([{ id: 1, title: '示例笔记' }])
   -webkit-text-size-adjust: 100%;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: rgb(225 21 21);
+}
+
+::-webkit-scrollbar-thumb {
+  box-sizing: content-box;
+  border: 4px solid rgba(0,0,0,0);
+  border-radius: 6px;
+  box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, .2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-width: 1px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 /* 编辑器全局样式 */
 .tiptap {
-  min-height: calc(100vh - 2rem);
+  min-height: 2rem;
   padding: 1rem;
 }
 
