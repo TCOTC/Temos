@@ -2,6 +2,7 @@
   "nodeModulesDir": "auto",
   "compat": true,
   "imports": {
-    "path": "npm:@types/node/path"
+    "path": "npm:@types/node/path",
+    "@tauri-apps/api": "npm:@tauri-apps/api@2.5.0"
   }
 }

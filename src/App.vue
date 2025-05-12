@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from "vue"
 import RichTextEditor from './components/RichTextEditor.vue'
+import CustomTitleBar from './components/CustomTitleBar.vue'
+
+
+const isTauri = "__TAURI_INTERNALS__" in window === true;
 
 interface Note {
   id: number
@@ -11,6 +15,7 @@ const notes = ref<Note[]>([{ id: 1, title: '示例笔记' }])
 </script>
 
 <template>
+  <CustomTitleBar v-if="isTauri" />
   <main class="app-container">
     <div class="notes-list">
       <h3>笔记列表</h3>
@@ -27,7 +32,8 @@ const notes = ref<Note[]>([{ id: 1, title: '示例笔记' }])
 <style scoped>
 .app-container {
   display: flex;
-  height: 100vh;
+  flex-direction: row;
+  height: v-bind('isTauri ? "calc(100vh - 30px)" : "100vh"');
   overflow: hidden;
 }
 
@@ -92,6 +98,9 @@ const notes = ref<Note[]>([{ id: 1, title: '示例笔记' }])
 body {
   margin: 0;
   padding: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 编辑器全局样式 */

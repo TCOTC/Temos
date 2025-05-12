@@ -2,6 +2,8 @@
   "version": "5",
   "specifiers": {
     "npm:@tauri-apps/api@2": "2.5.0",
+    "npm:@tauri-apps/api@2.5.0": "2.5.0",
+    "npm:@tauri-apps/api@^2.5.0": "2.5.0",
     "npm:@tauri-apps/cli@2": "2.5.0",
     "npm:@tauri-apps/cli@2.5.0": "2.5.0",
     "npm:@tauri-apps/plugin-opener@2": "2.2.6",
@@ -1126,11 +1128,12 @@
   },
   "workspace": {
     "dependencies": [
+      "npm:@tauri-apps/api@2.5.0",
       "npm:@types/node@*"
     ],
     "packageJson": {
       "dependencies": [
-        "npm:@tauri-apps/api@2",
+        "npm:@tauri-apps/api@^2.5.0",
         "npm:@tauri-apps/cli@2",
         "npm:@tauri-apps/plugin-opener@2",
         "npm:@tiptap/core@^2.12.0",
